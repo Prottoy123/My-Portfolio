@@ -6,7 +6,9 @@ export const HERO_DATA = {
   description: "A backend-focused Full Stack Developer specializing in the MERN stack. I build scalable applications from first principles, with a strong emphasis on robust API design, state management, and optimized database schemas.",
   github: "https://github.com/Prottoy123",
   linkedin: "https://linkedin.com/in/monjurul-islam-146601249",
-  email: "Monjurulislamprottoy@gmail.com"
+  email: "Monjurulislamprottoy@gmail.com",
+  facebook: "https://www.facebook.com/nirob.prottoy.9",
+  instagram: "https://www.instagram.com/nirobprottoy"
 };
 
 export const SKILLS_DATA = [
@@ -60,6 +62,19 @@ export const PROJECTS_DATA = [
     tech: ["React", "Redux Toolkit", "Appwrite", "Tailwind CSS"],
     liveLink: "https://blog-app-ten-ruby.vercel.app",
     githubLink: "https://github.com/Prottoy123/Blog_APP"
+  },
+  {
+    title: "HealthBridge (Ongoing)",
+    description: "A Smart Healthcare System bridging the gap between patients and healthcare providers. Focuses on real-time features and secure data handling.",
+    features: [
+      "Real-time bidirectional communication using WebSockets",
+      "In-memory data caching utilizing Redis for high performance",
+      "Secure patient-provider interactions and scheduling",
+      "Ongoing development integrating advanced analytics"
+    ],
+    tech: ["React", "Node.js", "Express", "MongoDB", "WebSockets", "Redis"],
+    liveLink: "#",
+    githubLink: "https://github.com/Prottoy123/HealthBridge"
   }
 ];
 
@@ -93,11 +108,16 @@ export const SERVICES_DATA = [
   {
     title: "Scalable E-commerce Backends",
     description: "Implementing robust cart states, Stripe payment processing, and secure seller authentication systems."
+  },
+  {
+    title: "Modern Frontend Engineering",
+    description: "Building highly responsive, interactive, and optimized Single Page Applications using React and Tailwind CSS."
   }
 ];
 
 export const SPOTLIGHT_DATA = {
   title: "HealthBridge - Smart Healthcare System",
   description: "An ongoing mega-project bridging the gap between patients and healthcare providers with real-time features.",
-  tags: ["WebSockets", "Redis", "Node.js", "React"]
+  tags: ["WebSockets", "Redis", "Node.js", "React"],
+  github: "https://github.com/Prottoy123/HealthBridge"
 };
