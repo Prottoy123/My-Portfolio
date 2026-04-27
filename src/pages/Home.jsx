@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Terminal, Code2, Database, Server, Activity, ArrowRight, Download, Briefcase } from 'lucide-react';
+import { Terminal, Code2, Database, Server, Activity, ArrowRight, Download, Briefcase, Layout } from 'lucide-react';
 import { FaGithub as Github, FaLinkedin as Linkedin } from 'react-icons/fa';
 import { HERO_DATA, SERVICES_DATA, SPOTLIGHT_DATA, PROJECTS_DATA } from '../constants';
+
+// Import local assets
+import profileImage from '../assets/Profile Image.jpg';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -27,12 +30,15 @@ const Home = () => {
               className="flex-1 text-center md:text-left"
             >
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 border border-primary/20">
-                <Activity size={16} /> Backend-Focused Developer
+                <Activity size={16} /> Backend-Focused Full Stack Developer
               </div>
-              <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-tight">
-                Architecting <span className="text-gradient">Scalable APIs</span> <br className="hidden md:block"/>
-                & Robust Data Flow.
+              <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-4">
+                Hi, I'm <span className="text-gradient">{HERO_DATA.name}</span>
               </h1>
+              <h2 className="text-2xl md:text-4xl font-semibold mb-6 leading-tight text-slate-300">
+                Architecting Scalable APIs <br className="hidden md:block"/>
+                & Robust Data Flow.
+              </h2>
               <p className="text-slate-400 text-lg md:text-xl mb-10 leading-relaxed max-w-2xl mx-auto md:mx-0">
                 {HERO_DATA.description}
               </p>
@@ -41,7 +47,7 @@ const Home = () => {
                 <Link to="/contact" className="btn btn-primary px-8 py-4 text-lg shadow-[0_0_20px_rgba(99,102,241,0.4)]">
                   <Briefcase size={20} /> Hire Me
                 </Link>
-                <a href="/resume.pdf" download className="btn btn-outline px-8 py-4 text-lg">
+                <a href="/Prottoy_Resume__Final__V2.pdf" download="Prottoy_Resume.pdf" className="btn btn-outline px-8 py-4 text-lg">
                   <Download size={20} /> Download Resume
                 </a>
               </div>
@@ -66,7 +72,7 @@ const Home = () => {
               {/* Profile Image alongside Terminal */}
               <div className="relative w-full max-w-md">
                 <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden glass p-2 mx-auto mb-[-60px] relative z-20 shadow-[0_0_40px_rgba(99,102,241,0.3)]">
-                  <img src="/profile.png" alt={HERO_DATA.name} className="w-full h-full object-cover rounded-full" />
+                  <img src={profileImage} alt={HERO_DATA.name} className="w-full h-full object-cover rounded-full" />
                 </div>
                 
                 {/* Live Backend Demo (Mock Terminal) */}
@@ -102,23 +108,23 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 2. SPECIALIZED SERVICES (3-Column Grid) */}
+      {/* 2. SPECIALIZED SERVICES (Grid) */}
       <section className="max-w-7xl mx-auto px-6 w-full">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp} className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Specialized <span className="text-gradient">Services</span></h2>
-          <p className="text-slate-400 max-w-2xl mx-auto">Delivering high-performance backend architecture tailored for scalability and security.</p>
+          <p className="text-slate-400 max-w-2xl mx-auto">Delivering high-performance architecture tailored for scalability and security.</p>
         </motion.div>
         
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {SERVICES_DATA.map((service, index) => {
-            const Icon = index === 0 ? Code2 : index === 1 ? Database : Server;
+            const Icon = index === 0 ? Code2 : index === 1 ? Database : index === 2 ? Server : Layout;
             return (
               <motion.div key={index} variants={fadeUp} className="glass p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300">
                 <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6">
                   <Icon size={28} />
                 </div>
                 <h3 className="text-xl font-bold mb-3">{service.title}</h3>
-                <p className="text-slate-400 leading-relaxed">{service.description}</p>
+                <p className="text-slate-400 leading-relaxed text-sm">{service.description}</p>
               </motion.div>
             )
           })}
@@ -140,13 +146,16 @@ const Home = () => {
               </div>
               <h3 className="text-3xl font-bold mb-4">{SPOTLIGHT_DATA.title}</h3>
               <p className="text-slate-300 text-lg mb-8">{SPOTLIGHT_DATA.description}</p>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap items-center gap-3 mb-6">
                 {SPOTLIGHT_DATA.tags.map((tag, i) => (
                   <span key={i} className="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-sm font-semibold text-primary">
                     {tag}
                   </span>
                 ))}
               </div>
+              <a href={SPOTLIGHT_DATA.github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-slate-300 hover:text-primary transition-colors font-medium">
+                <Github size={20} /> View on GitHub
+              </a>
             </div>
             <div className="hidden md:flex flex-1 justify-center relative">
                <div className="w-full h-48 glass rounded-xl border border-white/10 flex items-center justify-center">

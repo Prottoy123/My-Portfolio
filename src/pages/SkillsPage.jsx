@@ -1,5 +1,12 @@
 import { motion } from 'framer-motion';
 import { SKILLS_DATA } from '../constants';
+import { 
+  SiTailwindcss, SiExpress, SiSocketdotio, SiMongodb, SiMongoose,
+  SiAppwrite, SiCloudinary, SiRedux, SiReacthookform,
+  SiPostman, SiVercel
+} from 'react-icons/si';
+import { FaJs, FaReact, FaHtml5, FaCss3Alt, FaNodeJs, FaGitAlt } from 'react-icons/fa';
+import { TbApi } from 'react-icons/tb';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -9,6 +16,30 @@ const fadeUp = {
 const staggerContainer = {
   hidden: { opacity: 0 },
   visible: { opacity: 1, transition: { staggerChildren: 0.2 } }
+};
+
+const getSkillIcon = (skillName) => {
+  switch(skillName) {
+    case "JavaScript (ES6+)": return <FaJs className="text-yellow-400 text-lg" />;
+    case "React.js": return <FaReact className="text-blue-400 text-lg" />;
+    case "Tailwind CSS": return <SiTailwindcss className="text-cyan-400 text-lg" />;
+    case "HTML5": return <FaHtml5 className="text-orange-500 text-lg" />;
+    case "CSS3": return <FaCss3Alt className="text-blue-500 text-lg" />;
+    case "Node.js": return <FaNodeJs className="text-green-500 text-lg" />;
+    case "Express.js": return <SiExpress className="text-gray-300 text-lg" />;
+    case "WebSockets": return <SiSocketdotio className="text-white text-lg" />;
+    case "RESTful APIs": return <TbApi className="text-blue-300 text-lg" />;
+    case "MongoDB": return <SiMongodb className="text-green-500 text-lg" />;
+    case "Mongoose": return <SiMongoose className="text-red-500 text-lg" />;
+    case "Appwrite": return <SiAppwrite className="text-pink-500 text-lg" />;
+    case "Cloudinary": return <SiCloudinary className="text-blue-500 text-lg" />;
+    case "Redux Toolkit": return <SiRedux className="text-purple-500 text-lg" />;
+    case "React Hook Form": return <SiReacthookform className="text-pink-400 text-lg" />;
+    case "Git & GitHub": return <FaGitAlt className="text-orange-600 text-lg" />;
+    case "Postman": return <SiPostman className="text-orange-500 text-lg" />;
+    case "Vercel": return <SiVercel className="text-white text-lg" />;
+    default: return <div className="w-2 h-2 rounded-full bg-secondary"></div>;
+  }
 };
 
 const SkillsPage = () => {
@@ -46,10 +77,10 @@ const SkillsPage = () => {
                   <h3 className="text-2xl font-bold">{category.category}</h3>
                 </div>
                 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {category.skills.map((skill, i) => (
-                    <div key={i} className="flex items-center gap-3 bg-surface/50 px-4 py-3 rounded-xl border border-white/5">
-                      <div className="w-2 h-2 rounded-full bg-secondary"></div>
+                    <div key={i} className="flex items-center gap-3 bg-surface/50 px-4 py-3 rounded-xl border border-white/5 hover:border-primary/30 transition-colors">
+                      {getSkillIcon(skill)}
                       <span className="font-medium text-slate-200">{skill}</span>
                     </div>
                   ))}
