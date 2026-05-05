@@ -50,14 +50,16 @@ const Projects = () => {
                   </div>
 
                   <div className="flex flex-wrap gap-4 pt-6 mt-auto">
-                    <a 
-                      href={project.liveLink} 
-                      target="_blank" 
-                      rel="noreferrer"
-                      className="btn btn-primary"
-                    >
-                      <ExternalLink size={18} /> Live Demo
-                    </a>
+                    {project.liveLink !== "#" && (
+                      <a 
+                        href={project.liveLink} 
+                        target="_blank" 
+                        rel="noreferrer"
+                        className="btn btn-primary"
+                      >
+                        <ExternalLink size={18} /> Live Demo
+                      </a>
+                    )}
                     <a 
                       href={project.githubLink} 
                       target="_blank" 
