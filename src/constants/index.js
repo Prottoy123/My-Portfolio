@@ -3,7 +3,7 @@ import { Layout, Server, Database, Code2 } from 'lucide-react';
 export const HERO_DATA = {
   name: "Md. Monjurul Islam",
   role: "MERN Stack Developer",
-  description: "A backend-focused Full Stack Developer specializing in the MERN stack. I build scalable applications from first principles, with a strong emphasis on robust API design, state management, and optimized database schemas.",
+  description: "A backend-focused Software Engineer specializing in the MERN stack. Proven ability to architect scalable applications from first principles, with a strong emphasis on robust API design, state management, and optimized database schemas to solve complex real-world data flow challenges",
   github: "https://github.com/Prottoy123",
   linkedin: "https://linkedin.com/in/monjurul-islam-146601249",
   email: "Monjurulislamprottoy@gmail.com",
@@ -25,7 +25,7 @@ export const SKILLS_DATA = [
   {
     category: "Database & Storage",
     icon: Database,
-    skills: ["MongoDB", "Mongoose", "Appwrite", "Cloudinary"]
+    skills: ["MongoDB", "Mongoose", "Appwrite", "Cloudinary", { name: "MySQL", isFamiliar: true }]
   },
   {
     category: "Tools & Architecture",

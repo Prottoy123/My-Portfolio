@@ -30,7 +30,7 @@ const Home = () => {
               className="flex-1 text-center md:text-left"
             >
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6 border border-primary/20">
-                <Activity size={16} /> Backend-Focused Full Stack Developer
+                <Activity size={16} /> Software Engineer | Backend Focused
               </div>
               <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-4">
                 Hi, I'm <span className="text-gradient">{HERO_DATA.name}</span>
