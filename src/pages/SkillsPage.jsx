@@ -3,7 +3,7 @@ import { SKILLS_DATA } from '../constants';
 import { 
   SiTailwindcss, SiExpress, SiSocketdotio, SiMongodb, SiMongoose,
   SiAppwrite, SiCloudinary, SiRedux, SiReacthookform,
-  SiPostman, SiVercel
+  SiPostman, SiVercel, SiMysql
 } from 'react-icons/si';
 import { FaJs, FaReact, FaHtml5, FaCss3Alt, FaNodeJs, FaGitAlt } from 'react-icons/fa';
 import { TbApi } from 'react-icons/tb';
@@ -33,6 +33,7 @@ const getSkillIcon = (skillName) => {
     case "Mongoose": return <SiMongoose className="text-red-500 text-lg" />;
     case "Appwrite": return <SiAppwrite className="text-pink-500 text-lg" />;
     case "Cloudinary": return <SiCloudinary className="text-blue-500 text-lg" />;
+    case "MySQL": return <SiMysql className="text-blue-600 text-lg" />;
     case "Redux Toolkit": return <SiRedux className="text-purple-500 text-lg" />;
     case "React Hook Form": return <SiReacthookform className="text-pink-400 text-lg" />;
     case "Git & GitHub": return <FaGitAlt className="text-orange-600 text-lg" />;
@@ -78,12 +79,25 @@ const SkillsPage = () => {
                 </div>
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {category.skills.map((skill, i) => (
-                    <div key={i} className="flex items-center gap-3 bg-surface/50 px-4 py-3 rounded-xl border border-white/5 hover:border-primary/30 transition-colors">
-                      {getSkillIcon(skill)}
-                      <span className="font-medium text-slate-200">{skill}</span>
-                    </div>
-                  ))}
+                  {category.skills.map((skill, i) => {
+                    const skillName = typeof skill === 'object' ? skill.name : skill;
+                    const isFamiliar = typeof skill === 'object' ? skill.isFamiliar : false;
+                    const isMySQL = skillName === 'MySQL';
+
+                    return (
+                      <div key={i} className={`flex items-center gap-3 bg-surface/50 px-4 py-3 rounded-xl border border-white/5 hover:border-primary/30 transition-colors ${isMySQL ? 'sm:col-span-2 justify-center' : ''}`}>
+                        {getSkillIcon(skillName)}
+                        <span className="font-medium text-slate-200 flex flex-wrap items-center gap-2">
+                          {skillName}
+                          {isFamiliar && (
+                            <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-primary/20 text-primary border border-primary/30 uppercase tracking-wider font-medium">
+                              Familiar
+                            </span>
+                          )}
+                        </span>
+                      </div>
+                    );
+                  })}
                 </div>
               </motion.div>
             );

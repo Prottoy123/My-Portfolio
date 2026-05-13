@@ -21,14 +21,26 @@ const Skills = () => {
                 </div>
                 <h3 className="text-xl font-semibold mb-4">{skillGroup.category}</h3>
                 <div className="flex flex-wrap gap-2">
-                  {skillGroup.skills.map((skill, i) => (
-                    <span 
-                      key={i} 
-                      className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-sm text-slate-300"
-                    >
-                      {skill}
-                    </span>
-                  ))}
+                  {skillGroup.skills.map((skill, i) => {
+                    const skillName = typeof skill === 'object' ? skill.name : skill;
+                    const isFamiliar = typeof skill === 'object' ? skill.isFamiliar : false;
+                    const isMySQL = skillName === 'MySQL';
+
+                    return (
+                      <div key={i} className={isMySQL ? "w-full flex justify-center mt-2" : ""}>
+                        <span 
+                          className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-sm text-slate-300 flex items-center gap-2"
+                        >
+                          {skillName}
+                          {isFamiliar && (
+                            <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-primary/20 text-primary border border-primary/30 uppercase tracking-wider font-medium">
+                              Familiar
+                            </span>
+                          )}
+                        </span>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             );
