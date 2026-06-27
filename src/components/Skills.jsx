@@ -8,37 +8,35 @@ const Skills = () => {
           Technical <span className="text-gradient">Arsenal</span>
         </h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="flex flex-wrap justify-center gap-6">
           {SKILLS_DATA.map((skillGroup, index) => {
             const Icon = skillGroup.icon;
             return (
               <div 
                 key={index} 
-                className="glass p-8 hover:-translate-y-2 hover:border-primary/50 hover:shadow-[0_10px_30px_-10px_rgba(99,102,241,0.3)] transition-all duration-300"
+                className="glass p-5 w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] xl:w-[calc(20%-1rem)] hover:-translate-y-2 hover:border-primary/50 hover:shadow-[0_10px_30px_-10px_rgba(99,102,241,0.3)] transition-all duration-300 flex flex-col"
               >
-                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6">
-                  <Icon size={28} />
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-4 shrink-0">
+                  <Icon size={24} />
                 </div>
-                <h3 className="text-xl font-semibold mb-4">{skillGroup.category}</h3>
-                <div className="flex flex-wrap gap-2">
+                <h3 className="text-lg font-semibold mb-3">{skillGroup.category}</h3>
+                <div className="flex flex-wrap gap-2 mt-1">
                   {skillGroup.skills.map((skill, i) => {
                     const skillName = typeof skill === 'object' ? skill.name : skill;
                     const isFamiliar = typeof skill === 'object' ? skill.isFamiliar : false;
-                    const isMySQL = skillName === 'MySQL';
 
                     return (
-                      <div key={i} className={isMySQL ? "w-full flex justify-center mt-2" : ""}>
-                        <span 
-                          className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-sm text-slate-300 flex items-center gap-2"
-                        >
-                          {skillName}
-                          {isFamiliar && (
-                            <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-primary/20 text-primary border border-primary/30 uppercase tracking-wider font-medium">
-                              Familiar
-                            </span>
-                          )}
-                        </span>
-                      </div>
+                      <span 
+                        key={i} 
+                        className="px-2.5 py-1 bg-white/5 border border-white/10 rounded-full text-xs text-slate-300 flex items-center gap-1.5"
+                      >
+                        {skillName}
+                        {isFamiliar && (
+                          <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-primary/20 text-primary border border-primary/30 uppercase tracking-wider font-medium">
+                            Familiar
+                          </span>
+                        )}
+                      </span>
                     );
                   })}
                 </div>

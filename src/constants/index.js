@@ -1,4 +1,4 @@
-import { Layout, Server, Database, Code2 } from 'lucide-react';
+import { Layout, Server, Database, Code2, Cloud } from 'lucide-react';
 
 export const HERO_DATA = {
   name: "Md. Monjurul Islam",
@@ -15,7 +15,7 @@ export const SKILLS_DATA = [
   {
     category: "Frontend",
     icon: Layout,
-    skills: ["JavaScript (ES6+)", "React.js", "Tailwind CSS", "HTML5", "CSS3"]
+    skills: ["JavaScript (ES6+)", "React.js", "Redux Toolkit", "Tailwind CSS", "HTML5", "CSS3"]
   },
   {
     category: "Backend",
@@ -25,41 +25,43 @@ export const SKILLS_DATA = [
   {
     category: "Database & Storage",
     icon: Database,
-    skills: ["MongoDB", "Mongoose", "Appwrite", "Cloudinary", { name: "MySQL", isFamiliar: true }]
+    skills: ["MongoDB", "Redis", "Mongoose", "Appwrite", "Cloudinary", { name: "MySQL", isFamiliar: true }]
   },
   {
     category: "Tools & Architecture",
     icon: Code2,
-    skills: ["Redux Toolkit", "React Hook Form", "Git & GitHub", "Postman", "Vercel"]
+    skills: ["React Hook Form", "Multer", "Git & GitHub", "Postman", "Gemini API Integration"]
+  },
+  {
+    category: "Deployment",
+    icon: Cloud,
+    skills: ["Docker", "AWS", "Vercel"]
   }
 ];
 
 export const PROJECTS_DATA = [
   {
-    title: "GroFresh Platform",
-    description: "An enterprise-grade, full-stack grocery e-commerce platform built using the MERN stack. Emphasizes complex cart state management and optimized media delivery via Cloudinary.",
+    title: "GroFresh - Full-Stack E-commerce Platform",
+    description: "Built a full-stack e-commerce web application with separate panels for buyers and sellers, featuring secure payments and optimized media uploads.",
     features: [
-      "JWT-based stateless authentication with secure HTTP-only cookies",
-      "Complex cart state management and Stripe checkout integration",
-      "Optimized media delivery and hosting via Cloudinary & Multer",
-      "MongoDB connection caching for Vercel serverless environments",
-      "Dual Dashboards: Comprehensive Admin/Seller & Customer interfaces"
+      "Built a full-stack e-commerce web application with separate panels for buyers and sellers.",
+      "Developed backend APIs using Node.js, Express, and MongoDB to manage user login, product listings, and shopping carts.",
+      "Integrated Stripe payment gateway to process secure online transactions during checkout.",
+      "Used Multer and Cloudinary for uploading and storing product images."
     ],
     tech: ["React", "Node.js", "Express", "MongoDB", "Stripe", "Tailwind"],
     liveLink: "https://gro-fresh-silk.vercel.app",
     githubLink: "https://github.com/Prottoy123/GroFresh"
   },
   {
-    title: "MegaBlog",
-    description: "A modern, highly responsive blogging architecture. Highlighted by a 40% reduction in API calls using Redux Toolkit and secure data flow via Appwrite BaaS.",
+    title: "MegaBlogAPP - Modern Blogging Platform",
+    description: "Created a blogging platform using React.js and Tailwind CSS for a clean and responsive user interface, featuring robust state management and cloud integration.",
     features: [
-      "40% reduction in API calls using Redux Toolkit state management",
-      "Robust Authentication and advanced CRUD operations via Appwrite BaaS",
-      "Service Layer Abstraction for clean backend separation",
-      "Rich Text Editing with TinyMCE integration",
-      "Premium UI with Glassmorphism and Contextual Navigation"
+      "Created a blogging platform using React.js and Tailwind CSS for a clean and responsive user interface.",
+      "Used Redux Toolkit to manage global data, keeping track of logged-in users and blog posts across different pages.",
+      "Integrated Appwrite to handle secure user authentication and store blog articles."
     ],
-    tech: ["React", "Redux Toolkit", "Appwrite", "Tailwind CSS"],
+    tech: ["React.js", "Tailwind", "Redux Toolkit", "Appwrite"],
     liveLink: "https://blog-app-ten-ruby.vercel.app",
     githubLink: "https://github.com/Prottoy123/Blog_APP"
   },

@@ -3,9 +3,9 @@ import { SKILLS_DATA } from '../constants';
 import { 
   SiTailwindcss, SiExpress, SiSocketdotio, SiMongodb, SiMongoose,
   SiAppwrite, SiCloudinary, SiRedux, SiReacthookform,
-  SiPostman, SiVercel, SiMysql
+  SiPostman, SiVercel, SiMysql, SiDocker, SiRedis
 } from 'react-icons/si';
-import { FaJs, FaReact, FaHtml5, FaCss3Alt, FaNodeJs, FaGitAlt } from 'react-icons/fa';
+import { FaJs, FaReact, FaHtml5, FaCss3Alt, FaNodeJs, FaGitAlt, FaAws } from 'react-icons/fa';
 import { TbApi } from 'react-icons/tb';
 
 const fadeUp = {
@@ -39,6 +39,9 @@ const getSkillIcon = (skillName) => {
     case "Git & GitHub": return <FaGitAlt className="text-orange-600 text-lg" />;
     case "Postman": return <SiPostman className="text-orange-500 text-lg" />;
     case "Vercel": return <SiVercel className="text-white text-lg" />;
+    case "Docker": return <SiDocker className="text-blue-400 text-lg" />;
+    case "AWS": return <FaAws className="text-amber-500 text-lg" />;
+    case "Redis": return <SiRedis className="text-red-500 text-lg" />;
     default: return <div className="w-2 h-2 rounded-full bg-secondary"></div>;
   }
 };
@@ -58,7 +61,7 @@ const SkillsPage = () => {
 
         <motion.div 
           initial="hidden" animate="visible" variants={staggerContainer} 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10"
+          className="flex flex-wrap justify-center gap-8"
         >
           {SKILLS_DATA.map((category, index) => {
             const Icon = category.icon;
@@ -66,31 +69,30 @@ const SkillsPage = () => {
               <motion.div 
                 key={index} 
                 variants={fadeUp}
-                className="glass p-8 md:p-10 rounded-3xl group hover:-translate-y-2 transition-transform duration-500 relative overflow-hidden"
+                className="glass p-6 md:p-8 rounded-3xl w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.35rem)] group hover:-translate-y-2 transition-transform duration-500 relative overflow-hidden flex flex-col"
               >
                 {/* Glow behind card on hover */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-primary/0 group-hover:bg-primary/10 blur-[60px] rounded-full -z-10 transition-colors duration-500"></div>
                 
-                <div className="flex items-center gap-4 mb-8 pb-6 border-b border-white/5">
-                  <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary border border-primary/20">
-                    <Icon size={28} />
+                <div className="flex items-center gap-3 mb-6 pb-4 border-b border-white/5">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary border border-primary/20 shrink-0">
+                    <Icon size={24} />
                   </div>
-                  <h3 className="text-2xl font-bold">{category.category}</h3>
+                  <h3 className="text-xl font-bold">{category.category}</h3>
                 </div>
                 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-1">
                   {category.skills.map((skill, i) => {
                     const skillName = typeof skill === 'object' ? skill.name : skill;
                     const isFamiliar = typeof skill === 'object' ? skill.isFamiliar : false;
-                    const isMySQL = skillName === 'MySQL';
 
                     return (
-                      <div key={i} className={`flex items-center gap-3 bg-surface/50 px-4 py-3 rounded-xl border border-white/5 hover:border-primary/30 transition-colors ${isMySQL ? 'sm:col-span-2 justify-center' : ''}`}>
+                      <div key={i} className="flex items-center gap-2.5 bg-surface/50 px-3.5 py-2.5 rounded-xl border border-white/5 hover:border-primary/30 transition-colors">
                         {getSkillIcon(skillName)}
-                        <span className="font-medium text-slate-200 flex flex-wrap items-center gap-2">
+                        <span className="font-medium text-slate-200 text-sm flex flex-wrap items-center gap-1.5">
                           {skillName}
                           {isFamiliar && (
-                            <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-primary/20 text-primary border border-primary/30 uppercase tracking-wider font-medium">
+                            <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-primary/20 text-primary border border-primary/30 uppercase tracking-wider font-medium">
                               Familiar
                             </span>
                           )}
