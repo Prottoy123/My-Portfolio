@@ -41,6 +41,19 @@ export const SKILLS_DATA = [
 
 export const PROJECTS_DATA = [
   {
+    title: "HealthBridge - Smart Healthcare System",
+    description: "A comprehensive, real-time healthcare platform bridging the gap between patients, doctors, and staff. Features an AI-powered symptom triage system, live queue management, and secure telemedicine capabilities.",
+    features: [
+      "Architected a scalable system with Role-Based Access Control (RBAC) for patients, doctors, staff, and admins.",
+      "Implemented real-time bidirectional communication using Socket.io and Redis for instant chat and live queue updates.",
+      "Integrated Gemini Vision AI for automated symptom triage and prescription decoding.",
+      "Engineered an optimized 'Cache-Aside' pattern using Upstash Redis to reduce API latency, alongside distributed locking to prevent booking race conditions."
+    ],
+    tech: ["React", "Node.js", "Express", "MongoDB", "Socket.io", "Redis", "Gemini AI", "Docker", "AWS EC2", "Vercel"],
+    liveLink: "https://health-bridge-gamma.vercel.app/",
+    githubLink: "https://github.com/Prottoy123/HealthBridge"
+  },
+  {
     title: "GroFresh - Full-Stack E-commerce Platform",
     description: "Built a full-stack e-commerce web application with separate panels for buyers and sellers, featuring secure payments and optimized media uploads.",
     features: [
@@ -49,7 +62,7 @@ export const PROJECTS_DATA = [
       "Integrated Stripe payment gateway to process secure online transactions during checkout.",
       "Used Multer and Cloudinary for uploading and storing product images."
     ],
-    tech: ["React", "Node.js", "Express", "MongoDB", "Stripe", "Tailwind"],
+    tech: ["React", "Context API", "Node.js", "Express", "MongoDB", "Stripe", "Tailwind", "Vercel"],
     liveLink: "https://gro-fresh-silk.vercel.app",
     githubLink: "https://github.com/Prottoy123/GroFresh"
   },
@@ -61,22 +74,9 @@ export const PROJECTS_DATA = [
       "Used Redux Toolkit to manage global data, keeping track of logged-in users and blog posts across different pages.",
       "Integrated Appwrite to handle secure user authentication and store blog articles."
     ],
-    tech: ["React.js", "Tailwind", "Redux Toolkit", "Appwrite"],
+    tech: ["React.js", "Tailwind", "Redux Toolkit", "Appwrite", "Vercel"],
     liveLink: "https://blog-app-ten-ruby.vercel.app",
     githubLink: "https://github.com/Prottoy123/Blog_APP"
-  },
-  {
-    title: "HealthBridge (Ongoing)",
-    description: "A Smart Healthcare System bridging the gap between patients and healthcare providers. Focuses on real-time features and secure data handling.",
-    features: [
-      "Real-time bidirectional communication using WebSockets",
-      "In-memory data caching utilizing Redis for high performance",
-      "Secure patient-provider interactions and scheduling",
-      "Ongoing development integrating advanced analytics"
-    ],
-    tech: ["React", "Node.js", "Express", "MongoDB", "WebSockets", "Redis"],
-    liveLink: "#",
-    githubLink: "https://github.com/Prottoy123/HealthBridge"
   }
 ];
 
@@ -88,9 +88,18 @@ export const EDUCATION_DATA = {
 };
 
 export const THESIS_DATA = {
-  title: "AI adoption among engineering students",
-  status: "Successfully Defended (Jan 2026)",
-  description: "A comprehensive research study analyzing the impact and adoption rates of artificial intelligence tools among engineering students, identifying key trends in modern educational workflows."
+  title: "Predictive Modeling of AI Adoption: A Hybrid Approach",
+  status: "Successfully Defended (Preparing for Publication)",
+  description: "An analytical study examining the behavioral drivers of advanced AI adoption among engineering students. The research bridges traditional statistical modeling with modern predictive algorithms to forecast technology acceptance.",
+  methodology: [
+    { title: "Theoretical Modeling (SEM)", text: "Developed an extended structural equation model to identify and quantify the core psychological and environmental drivers behind AI adoption." },
+    { title: "Predictive Engine (ML)", text: "Trained and evaluated multiple machine learning classifiers on a large-scale demographic dataset to accurately predict user adoption intentions." }
+  ],
+  keyFindings: [
+    "Identified the primary usability and risk-assessment factors that serve as the strongest catalysts and bottlenecks for student adoption.",
+    "Demonstrated that advanced ensemble machine learning methods significantly outperform traditional linear models in predicting complex behavioral intents.",
+    "Successfully bridged theoretical behavioral science with practical, algorithmic implementation for real-world application."
+  ]
 };
 
 export const EXTRACURRICULARS_DATA = [
@@ -119,7 +128,7 @@ export const SERVICES_DATA = [
 
 export const SPOTLIGHT_DATA = {
   title: "HealthBridge - Smart Healthcare System",
-  description: "An ongoing mega-project bridging the gap between patients and healthcare providers with real-time features.",
-  tags: ["WebSockets", "Redis", "Node.js", "React"],
+  description: "A comprehensive, deployed mega-project bridging the gap between patients and healthcare providers with real-time features and AI integrations.",
+  tags: ["WebSockets", "Redis", "Node.js", "React", "Docker", "AWS EC2"],
   github: "https://github.com/Prottoy123/HealthBridge"
 };

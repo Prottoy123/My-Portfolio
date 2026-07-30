@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Terminal, Code2, Database, Server, Activity, ArrowRight, Download, Briefcase, Layout } from 'lucide-react';
+import { Terminal, Code2, Database, Server, Activity, ArrowRight, Download, Briefcase, Layout, BookOpen, Microscope, Cpu, CheckCircle2 } from 'lucide-react';
 import { FaGithub as Github, FaLinkedin as Linkedin } from 'react-icons/fa';
-import { HERO_DATA, SERVICES_DATA, SPOTLIGHT_DATA, PROJECTS_DATA } from '../constants';
+import { HERO_DATA, SERVICES_DATA, PROJECTS_DATA, THESIS_DATA } from '../constants';
 
 // Import local assets
 import profileImage from '../assets/Profile Image.jpg';
@@ -131,36 +131,58 @@ const Home = () => {
         </motion.div>
       </section>
 
-      {/* 3. ACTIVE SPOTLIGHT */}
-      <section className="max-w-5xl mx-auto px-6 w-full">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp} className="relative glass p-1 rounded-3xl overflow-hidden group">
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-          <div className="bg-surface/90 backdrop-blur-xl p-8 md:p-12 rounded-[1.4rem] relative z-10 flex flex-col md:flex-row items-center gap-10">
-            <div className="flex-1">
-              <div className="inline-flex items-center gap-2 text-secondary font-mono text-sm mb-4">
-                <span className="relative flex h-3 w-3">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-3 w-3 bg-secondary"></span>
-                </span>
-                Active Megaproject Spotlight
-              </div>
-              <h3 className="text-3xl font-bold mb-4">{SPOTLIGHT_DATA.title}</h3>
-              <p className="text-slate-300 text-lg mb-8">{SPOTLIGHT_DATA.description}</p>
-              <div className="flex flex-wrap items-center gap-3 mb-6">
-                {SPOTLIGHT_DATA.tags.map((tag, i) => (
-                  <span key={i} className="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-sm font-semibold text-primary">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              <a href={SPOTLIGHT_DATA.github} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-slate-300 hover:text-primary transition-colors font-medium">
-                <Github size={20} /> View on GitHub
-              </a>
+      {/* 3. ACADEMIC & RESEARCH BACKGROUND */}
+      <section className="max-w-7xl mx-auto px-6 w-full">
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp} className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Academic & <span className="text-gradient">Research</span></h2>
+          <p className="text-slate-400 max-w-2xl mx-auto">{THESIS_DATA.status}</p>
+        </motion.div>
+
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={staggerContainer} className="glass p-8 md:p-12 rounded-3xl relative overflow-hidden">
+          <div className="absolute top-0 right-0 p-32 bg-primary/5 blur-[120px] rounded-full"></div>
+          
+          <div className="relative z-10">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 text-secondary text-sm font-medium mb-6 border border-secondary/20">
+              <Microscope size={16} /> B.Sc. Computer Science Thesis
             </div>
-            <div className="hidden md:flex flex-1 justify-center relative">
-               <div className="w-full h-48 glass rounded-xl border border-white/10 flex items-center justify-center">
-                  <Activity size={64} className="text-primary/50 animate-pulse" />
-               </div>
+            <h3 className="text-2xl md:text-3xl font-bold mb-6">{THESIS_DATA.title}</h3>
+            <p className="text-slate-300 text-lg mb-10 leading-relaxed max-w-4xl">{THESIS_DATA.description}</p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+              {/* Methodology */}
+              <div>
+                <h4 className="text-xl font-semibold mb-6 flex items-center gap-2 text-primary">
+                  <Cpu size={20} /> Methodology & Architecture
+                </h4>
+                <div className="space-y-6">
+                  {THESIS_DATA.methodology.map((item, i) => (
+                    <div key={i} className="flex gap-4">
+                      <div className="mt-1 flex-shrink-0 w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center text-slate-300 border border-white/10">
+                        {i + 1}
+                      </div>
+                      <div>
+                        <h5 className="font-semibold text-slate-200 mb-1">{item.title}</h5>
+                        <p className="text-slate-400 text-sm leading-relaxed">{item.text}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              
+              {/* Key Findings */}
+              <div className="bg-surface/50 p-6 md:p-8 rounded-2xl border border-white/5">
+                <h4 className="text-xl font-semibold mb-6 flex items-center gap-2 text-secondary">
+                  <CheckCircle2 size={20} /> Critical Findings
+                </h4>
+                <ul className="space-y-4">
+                  {THESIS_DATA.keyFindings.map((finding, i) => (
+                    <li key={i} className="flex gap-3 text-slate-300 text-sm leading-relaxed">
+                      <div className="text-secondary mt-1 shrink-0"><BookOpen size={16} /></div>
+                      <span>{finding}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </motion.div>
