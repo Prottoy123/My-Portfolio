@@ -5,7 +5,7 @@ export const HERO_DATA = {
   role: "MERN Stack Developer",
   description: "A backend-focused Software Engineer specializing in the MERN stack. Proven ability to architect scalable applications from first principles, with a strong emphasis on robust API design, state management, and optimized database schemas to solve complex real-world data flow challenges",
   github: "https://github.com/Prottoy123",
-  linkedin: "https://linkedin.com/in/monjurul-islam-146601249",
+  linkedin: "https://linkedin.com/in/md-monjurul-islam-146601249",
   email: "Monjurulislamprottoy@gmail.com",
   facebook: "https://www.facebook.com/nirob.prottoy.9",
   instagram: "https://www.instagram.com/nirobprottoy"
