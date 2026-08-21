@@ -47,7 +47,7 @@ const Home = () => {
                 <Link to="/contact" className="btn btn-primary px-8 py-4 text-lg shadow-[0_0_20px_rgba(99,102,241,0.4)]">
                   <Briefcase size={20} /> Hire Me
                 </Link>
-                <a href="/Prottoy_Resume__Final__V2.pdf" download="Prottoy_Resume.pdf" className="btn btn-outline px-8 py-4 text-lg">
+                <a href="/Resume_Of_Monjurul_Islam.pdf" download="Resume_Of_Monjurul_Islam.pdf" className="btn btn-outline px-8 py-4 text-lg">
                   <Download size={20} /> Download Resume
                 </a>
               </div>
