@@ -25,7 +25,7 @@ export const SKILLS_DATA = [
   {
     category: "Database & Storage",
     icon: Database,
-    skills: ["MongoDB", "Redis", "Mongoose", "Appwrite", "Cloudinary", { name: "MySQL", isFamiliar: true }]
+    skills: ["MongoDB", "PostgreSQL", "Redis", "Mongoose", "Prisma", "Appwrite", "Cloudinary"]
   },
   {
     category: "Tools & Architecture",
@@ -35,7 +35,7 @@ export const SKILLS_DATA = [
   {
     category: "Deployment",
     icon: Cloud,
-    skills: ["Docker", "AWS", "Vercel"]
+    skills: ["Docker", "AWS EC2", "Vercel"]
   }
 ];
 
@@ -131,4 +131,19 @@ export const SPOTLIGHT_DATA = {
   description: "A comprehensive, deployed mega-project bridging the gap between patients and healthcare providers with real-time features and AI integrations.",
   tags: ["WebSockets", "Redis", "Node.js", "React", "Docker", "AWS EC2"],
   github: "https://github.com/Prottoy123/HealthBridge"
+};
+
+export const ONGOING_PROJECT_DATA = {
+  title: "NexaCommand - Enterprise SaaS Platform",
+  description: "An advanced, highly scalable multi-tenant SaaS architecture ('The Engine Room') designed for robust enterprise operations. Features strict tenant isolation, dynamic inventory, unified billing, and AI-driven insights.",
+  features: [
+    "Architecting a secure Multi-Tenant core with isolated data environments and advanced RBAC using PostgreSQL and Prisma.",
+    "Implementing an Idempotent Unified Billing Engine to guarantee transaction safety and prevent double-charging.",
+    "Integrating AI Time-Travel capabilities via Gemini API for dynamic PnL (Profit and Loss) simulation.",
+    "Developing real-time ledger tracking and a dynamic 'Dead-Stock' inventory system with Upstash Redis."
+  ],
+  tech: ["PostgreSQL", "React", "Node.js", "Express", "Docker", "Redis", "WebSocket", "Redux Toolkit", "AWS EC2", "Prisma"],
+  liveLink: "#",
+  githubLink: "https://github.com/Prottoy123/NexaCommand",
+  status: "Active Development 🚀"
 };
