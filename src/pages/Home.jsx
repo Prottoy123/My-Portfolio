@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Terminal, Code2, Database, Server, Activity, ArrowRight, Download, Briefcase, Layout, BookOpen, Microscope, Cpu, CheckCircle2 } from 'lucide-react';
 import { FaGithub as Github, FaLinkedin as Linkedin } from 'react-icons/fa';
-import { HERO_DATA, SERVICES_DATA, PROJECTS_DATA, THESIS_DATA } from '../constants';
+import { HERO_DATA, SERVICES_DATA, PROJECTS_DATA, THESIS_DATA, ONGOING_PROJECT_DATA } from '../constants';
 
 // Import local assets
 import profileImage from '../assets/Profile Image.jpg';
@@ -131,7 +131,52 @@ const Home = () => {
         </motion.div>
       </section>
 
-      {/* 3. ACADEMIC & RESEARCH BACKGROUND */}
+      {/* 3. ONGOING PROJECT SPOTLIGHT */}
+      <section className="max-w-7xl mx-auto px-6 w-full">
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp} className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Ongoing <span className="text-gradient">Project</span></h2>
+          <p className="text-slate-400 max-w-2xl mx-auto">Building a next-generation enterprise application with modern architecture.</p>
+        </motion.div>
+
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="glass p-8 md:p-12 rounded-3xl relative overflow-hidden border border-yellow-500/30 shadow-[0_0_40px_rgba(234,179,8,0.15)] group hover:border-yellow-500/50 transition-colors">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-yellow-500/10 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+          
+          <div className="flex flex-col lg:flex-row gap-12">
+            <div className="flex-1 space-y-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-yellow-500/10 text-yellow-500 text-xs font-bold border border-yellow-500/20">
+                <div className="w-2 h-2 rounded-full bg-yellow-500 animate-pulse"></div>
+                {ONGOING_PROJECT_DATA.status}
+              </div>
+              <h3 className="text-2xl md:text-3xl font-bold group-hover:text-yellow-400 transition-colors">{ONGOING_PROJECT_DATA.title}</h3>
+              <p className="text-slate-300 text-lg leading-relaxed">{ONGOING_PROJECT_DATA.description}</p>
+              
+              <div className="flex flex-wrap gap-2 pt-2">
+                {ONGOING_PROJECT_DATA.tech.map((tech, i) => (
+                  <span key={i} className={`text-xs font-semibold px-4 py-1.5 rounded-full border shadow-sm transition-colors ${tech.toLowerCase() === 'postgresql' ? 'text-blue-400 bg-blue-400/10 border-blue-400/30 shadow-[0_0_10px_rgba(96,165,250,0.2)] font-bold' : 'text-secondary bg-secondary/10 border-secondary/20'}`}>
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex-1 bg-background/60 rounded-xl p-6 md:p-8 border border-white/5 font-mono text-sm shadow-inner relative">
+              <h4 className="text-primary font-bold mb-6 flex items-center gap-2 text-lg">
+                <span className="text-slate-500">&gt;</span> ## Core_Architecture
+              </h4>
+              <ul className="space-y-4 text-slate-300">
+                {ONGOING_PROJECT_DATA.features.map((feature, i) => (
+                  <li key={i} className="flex items-start gap-4">
+                    <span className="text-yellow-500 mt-0.5 shrink-0"><Terminal size={16} /></span>
+                    <span className="leading-relaxed">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* 4. ACADEMIC & RESEARCH BACKGROUND */}
       <section className="max-w-7xl mx-auto px-6 w-full">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={fadeUp} className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Academic & <span className="text-gradient">Research</span></h2>
@@ -188,7 +233,7 @@ const Home = () => {
         </motion.div>
       </section>
 
-      {/* 4. FEATURED PROJECTS PREVIEW */}
+      {/* 5. FEATURED PROJECTS PREVIEW */}
       <section className="max-w-7xl mx-auto px-6 w-full">
         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="flex justify-between items-end mb-12">
           <div>
@@ -213,7 +258,7 @@ const Home = () => {
                 ))}
               </div>
               <a href={project.liveLink} target="_blank" rel="noreferrer" className="btn btn-outline w-full justify-center">
-                Explore Demo
+                Live Link
               </a>
             </motion.div>
           ))}
