@@ -1,6 +1,6 @@
-import { ExternalLink, BookOpen, CheckCircle } from 'lucide-react';
+import { ExternalLink, BookOpen, CheckCircle, Activity } from 'lucide-react';
 import { FaGithub as Github } from 'react-icons/fa';
-import { PROJECTS_DATA } from '../constants';
+import { PROJECTS_DATA, ONGOING_PROJECT_DATA } from '../constants';
 
 const Projects = () => {
   return (
@@ -11,8 +11,18 @@ const Projects = () => {
         </h2>
         
         <div className="flex flex-col gap-16">
-          {PROJECTS_DATA.map((project, index) => (
-            <div key={index} className="glass flex flex-col overflow-hidden group relative transform transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(99,102,241,0.2)]">
+          {[ONGOING_PROJECT_DATA, ...PROJECTS_DATA].map((project, index) => (
+            <div 
+              key={index} 
+              className={`glass flex flex-col overflow-hidden group relative transform transition-all duration-500 hover:-translate-y-2 ${
+                project.status 
+                  ? 'border border-yellow-500/30 shadow-[0_0_30px_rgba(234,179,8,0.15)] hover:border-yellow-500/50 hover:shadow-[0_20px_40px_-15px_rgba(234,179,8,0.3)]' 
+                  : 'hover:shadow-[0_20px_40px_-15px_rgba(99,102,241,0.2)]'
+              }`}
+            >
+              {project.status && (
+                <div className="absolute top-0 right-0 w-96 h-96 bg-yellow-500/10 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+              )}
               {/* Fake Window Header */}
               <div className="flex items-center px-6 py-4 bg-surface/80 border-b border-white/5 backdrop-blur-md">
                 <div className="flex gap-2.5">
@@ -24,13 +34,23 @@ const Projects = () => {
                   <BookOpen size={16} /> {project.title.toLowerCase().replace(/\s+/g, '-')}-readme.md
                 </div>
               </div>
+              
+              {project.status && (
+                <div className="w-full flex items-center justify-center gap-4 pt-8 md:pt-10 px-8">
+                  <div className="h-[1px] bg-gradient-to-r from-transparent to-yellow-500/30 w-16 md:w-32"></div>
+                  <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-yellow-500/10 border border-yellow-500/30 text-yellow-500 text-sm md:text-base font-semibold tracking-wide shadow-[0_0_15px_rgba(234,179,8,0.15)]">
+                    <Activity size={18} className="animate-pulse" /> Ongoing Project
+                  </div>
+                  <div className="h-[1px] bg-gradient-to-l from-transparent to-yellow-500/30 w-16 md:w-32"></div>
+                </div>
+              )}
 
-              <div className="p-8 md:p-12 flex flex-col lg:flex-row gap-12">
+              <div className={`p-8 md:p-12 flex flex-col lg:flex-row gap-12 ${project.status ? 'pt-6 md:pt-8' : ''}`}>
                 
                 {/* Left side: Context */}
                 <div className="flex-1 space-y-8 flex flex-col">
                   <div>
-                    <h3 className="text-3xl md:text-4xl font-bold mb-6 group-hover:text-primary transition-colors duration-300">
+                    <h3 className="text-3xl md:text-4xl font-bold mb-4 group-hover:text-primary transition-colors duration-300">
                       {project.title}
                     </h3>
                     <p className="text-slate-300 text-lg leading-relaxed">
@@ -42,7 +62,7 @@ const Projects = () => {
                     {project.tech.map((tech, i) => (
                       <span 
                         key={i} 
-                        className="text-xs font-semibold text-secondary bg-secondary/10 px-4 py-1.5 rounded-full border border-secondary/20 shadow-sm"
+                        className={`text-xs font-semibold px-4 py-1.5 rounded-full border shadow-sm transition-colors ${tech.toLowerCase() === 'postgresql' ? 'text-blue-400 bg-blue-400/10 border-blue-400/30 shadow-[0_0_10px_rgba(96,165,250,0.2)] font-bold' : 'text-secondary bg-secondary/10 border-secondary/20'}`}
                       >
                         {tech}
                       </span>
@@ -57,17 +77,19 @@ const Projects = () => {
                         rel="noreferrer"
                         className="btn btn-primary"
                       >
-                        <ExternalLink size={18} /> Live Demo
+                        <ExternalLink size={18} /> Live Link
                       </a>
                     )}
-                    <a 
-                      href={project.githubLink} 
-                      target="_blank" 
-                      rel="noreferrer"
-                      className="btn btn-outline"
-                    >
-                      <Github size={18} /> Source Code
-                    </a>
+                    {project.githubLink !== "#" && (
+                      <a 
+                        href={project.githubLink} 
+                        target="_blank" 
+                        rel="noreferrer"
+                        className="btn btn-outline"
+                      >
+                        <Github size={18} /> Source Code
+                      </a>
+                    )}
                   </div>
                 </div>
 
