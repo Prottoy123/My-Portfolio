@@ -70,7 +70,7 @@ const Projects = () => {
                   </div>
 
                   <div className="flex flex-wrap gap-4 pt-6 mt-auto">
-                    {project.liveLink !== "#" && (
+                    {project.liveLink && project.liveLink !== "#" && (
                       <a 
                         href={project.liveLink} 
                         target="_blank" 
@@ -80,7 +80,7 @@ const Projects = () => {
                         <ExternalLink size={18} /> Live Link
                       </a>
                     )}
-                    {project.githubLink !== "#" && (
+                    {project.githubLink && project.githubLink !== "#" && (
                       <a 
                         href={project.githubLink} 
                         target="_blank" 
@@ -88,6 +88,16 @@ const Projects = () => {
                         className="btn btn-outline"
                       >
                         <Github size={18} /> Source Code
+                      </a>
+                    )}
+                    {project.swaggerLink && project.swaggerLink !== "#" && (
+                      <a 
+                        href={project.swaggerLink} 
+                        target="_blank" 
+                        rel="noreferrer"
+                        className="btn btn-primary"
+                      >
+                        <BookOpen size={18} /> Swagger Docs
                       </a>
                     )}
                   </div>
