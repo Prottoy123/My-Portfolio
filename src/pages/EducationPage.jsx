@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Trophy, GraduationCap, BookOpen } from 'lucide-react';
-import { EDUCATION_DATA, EXTRACURRICULARS_DATA, THESIS_DATA } from '../constants';
+import { EDUCATION_DATA, EXTRACURRICULARS_DATA, THESIS_DATA, HSC_DATA, SSC_DATA } from '../constants';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -51,6 +51,38 @@ const EducationPage = () => {
               <h3 className="text-xl font-bold mb-3">Thesis: {THESIS_DATA.title}</h3>
               <p className="text-sm text-slate-400 leading-relaxed">
                 {THESIS_DATA.description}
+              </p>
+            </div>
+          </motion.div>
+
+          {/* HSC Item */}
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="relative mb-16 md:w-1/2 md:pr-12 md:ml-0 md:text-right">
+            <div className="absolute -left-12 md:-right-[26px] md:left-auto top-6 w-4 h-4 rounded-full bg-primary ring-4 ring-background shadow-[0_0_0_8px_rgba(99,102,241,0.2)] z-10"></div>
+            <div className="font-display font-bold text-primary mb-2 flex items-center md:justify-end gap-2">
+              <GraduationCap size={18} className="md:order-last" /> {HSC_DATA.period}
+            </div>
+            <div className="glass p-8 relative hover:-translate-y-1 transition-transform group">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl -z-10 group-hover:bg-primary/10 transition-colors"></div>
+              <h3 className="text-xl font-bold mb-2">{HSC_DATA.degree}</h3>
+              <h4 className="text-slate-400 font-medium mb-4">{HSC_DATA.institution}</h4>
+              <p className="text-sm text-slate-400 leading-relaxed">
+                <strong className="text-slate-300">Background:</strong> {HSC_DATA.background}
+              </p>
+            </div>
+          </motion.div>
+
+          {/* SSC Item */}
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="relative mb-16 md:w-1/2 md:pl-12 md:ml-auto">
+            <div className="absolute -left-12 md:-left-[6px] top-6 w-4 h-4 rounded-full bg-secondary ring-4 ring-background shadow-[0_0_0_8px_rgba(236,72,153,0.2)] z-10"></div>
+            <div className="font-display font-bold text-secondary mb-2 flex items-center gap-2">
+              <GraduationCap size={18} /> {SSC_DATA.period}
+            </div>
+            <div className="glass p-8 relative hover:-translate-y-1 transition-transform group">
+              <div className="absolute top-0 left-0 w-32 h-32 bg-secondary/5 rounded-full blur-2xl -z-10 group-hover:bg-secondary/10 transition-colors"></div>
+              <h3 className="text-xl font-bold mb-2">{SSC_DATA.degree}</h3>
+              <h4 className="text-slate-400 font-medium mb-4">{SSC_DATA.institution}</h4>
+              <p className="text-sm text-slate-400 leading-relaxed">
+                <strong className="text-slate-300">Background:</strong> {SSC_DATA.background}
               </p>
             </div>
           </motion.div>
