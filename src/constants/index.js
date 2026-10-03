@@ -3,7 +3,7 @@ import { Layout, Server, Database, Code2, Cloud } from 'lucide-react';
 export const HERO_DATA = {
   name: "Md. Monjurul Islam",
   role: "MERN Stack Developer",
-  description: "A backend-focused Software Engineer specializing in the MERN stack. Proven ability to architect scalable applications from first principles, with a strong emphasis on robust API design, state management, and optimized database schemas to solve complex real-world data flow challenges",
+  description: "Software Engineer with hands-on experience building web applications across the MERN and PERN stacks through different types of projects. Comfortable owning a feature end-to-end, from designing REST APIs and well-structured database schemas to implementing role-based access control and real-time functionality. Particularly drawn to the backend, writing server-side logic that stays clean and easy to reason about as an application grows.",
   github: "https://github.com/Prottoy123",
   linkedin: "https://linkedin.com/in/md-monjurul-islam-146601249",
   email: "Monjurulislamprottoy@gmail.com",
@@ -67,6 +67,31 @@ export const PROJECTS_DATA = [
     githubLink: "https://github.com/Prottoy123/GroFresh"
   },
   {
+    title: "Dhaka Tesla Pool - EV Ride-Pooling System",
+    description: "Built a real-time electric vehicle ride-pooling platform for Dhaka commuters, featuring concurrency locking, corridor matching, and fair fare-splitting.",
+    features: [
+      "Engineered row-level locking (SELECT ... FOR UPDATE) in PostgreSQL to prevent concurrent seat overbooking.",
+      "Developed an in-memory corridor matcher using an adjacency graph for transit routes with zero external map APIs.",
+      "Implemented an exact integer-poysha fare splitting engine to completely avoid floating-point rounding errors."
+    ],
+    tech: ["React", "Node.js", "Express", "PostgreSQL", "Prisma", "Vercel"],
+    liveLink: "https://tesla-pool-roben-devs.vercel.app/",
+    githubLink: "https://github.com/Prottoy123/TeslaPool---RobenDevs"
+  },
+  {
+    title: "EchoGPT - Multi-AI Backend REST API",
+    description: "Developed a production-ready RESTful backend API for the EchoGPT Chrome Extension, supporting multi-provider AI chat and intelligent web search.",
+    features: [
+      "Built modular multi-provider AI chat routing (Gemini, Claude, OpenAI) using NestJS and Vercel AI SDK.",
+      "Secured provider API keys using AES-256-GCM encryption and implemented dual-token JWT authentication.",
+      "Integrated Server-Sent Events (SSE) for real-time streaming, search caching, and automated Swagger docs."
+    ],
+    tech: ["NestJS", "PostgreSQL", "Prisma", "Vercel AI SDK", "Swagger", "Docker"],
+    liveLink: "#",
+    githubLink: "https://github.com/Prottoy123/EchoGPT",
+    swaggerLink: "https://prottoy123.github.io/EchoGPT/"
+  },
+  {
     title: "MegaBlogAPP - Modern Blogging Platform",
     description: "Created a blogging platform using React.js and Tailwind CSS for a clean and responsive user interface, featuring robust state management and cloud integration.",
     features: [
@@ -83,8 +108,22 @@ export const PROJECTS_DATA = [
 export const EDUCATION_DATA = {
   degree: "B.Sc. in Computer Science and Engineering",
   institution: "Daffodil International University, Dhaka, Bangladesh",
-  period: "2022 - 2025",
+  period: "2022 - 2026",
   coursework: "Data Structures, Algorithms, Object-Oriented Programming, Database Management Systems, Web Engineering."
+};
+
+export const HSC_DATA = {
+  degree: "Higher Secondary Certificate (HSC)",
+  institution: "Charghat Alhaj Hadi College",
+  period: "2018 - 2020",
+  background: "Science"
+};
+
+export const SSC_DATA = {
+  degree: "Secondary School Certificate (SSC)",
+  institution: "Charghat Pilot High School",
+  period: "2016 - 2018",
+  background: "Science"
 };
 
 export const THESIS_DATA = {
