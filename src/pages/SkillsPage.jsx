@@ -3,7 +3,8 @@ import { SKILLS_DATA } from '../constants';
 import { 
   SiTailwindcss, SiExpress, SiSocketdotio, SiMongodb, SiMongoose,
   SiAppwrite, SiCloudinary, SiRedux, SiReacthookform,
-  SiPostman, SiVercel, SiMysql, SiDocker, SiRedis
+  SiPostman, SiVercel, SiMysql, SiDocker, SiRedis,
+  SiRender, SiPostgresql, SiPrisma
 } from 'react-icons/si';
 import { FaJs, FaReact, FaHtml5, FaCss3Alt, FaNodeJs, FaGitAlt, FaAws } from 'react-icons/fa';
 import { TbApi } from 'react-icons/tb';
@@ -30,6 +31,8 @@ const getSkillIcon = (skillName) => {
     case "WebSockets": return <SiSocketdotio className="text-white text-lg" />;
     case "RESTful APIs": return <TbApi className="text-blue-300 text-lg" />;
     case "MongoDB": return <SiMongodb className="text-green-500 text-lg" />;
+    case "PostgreSQL": return <SiPostgresql className="text-blue-400 text-lg" />;
+    case "Prisma": return <SiPrisma className="text-emerald-400 text-lg" />;
     case "Mongoose": return <SiMongoose className="text-red-500 text-lg" />;
     case "Appwrite": return <SiAppwrite className="text-pink-500 text-lg" />;
     case "Cloudinary": return <SiCloudinary className="text-blue-500 text-lg" />;
@@ -39,8 +42,10 @@ const getSkillIcon = (skillName) => {
     case "Git & GitHub": return <FaGitAlt className="text-orange-600 text-lg" />;
     case "Postman": return <SiPostman className="text-orange-500 text-lg" />;
     case "Vercel": return <SiVercel className="text-white text-lg" />;
+    case "Render": return <SiRender className="text-cyan-400 text-lg" />;
     case "Docker": return <SiDocker className="text-blue-400 text-lg" />;
-    case "AWS": return <FaAws className="text-amber-500 text-lg" />;
+    case "AWS": 
+    case "AWS EC2": return <FaAws className="text-amber-500 text-lg" />;
     case "Redis": return <SiRedis className="text-red-500 text-lg" />;
     default: return <div className="w-2 h-2 rounded-full bg-secondary"></div>;
   }

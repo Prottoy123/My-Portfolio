@@ -35,7 +35,7 @@ export const SKILLS_DATA = [
   {
     category: "Deployment",
     icon: Cloud,
-    skills: ["Docker", "AWS EC2", "Vercel"]
+    skills: ["Docker", "AWS EC2", "Vercel", "Render"]
   }
 ];
 
